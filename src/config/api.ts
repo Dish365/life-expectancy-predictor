@@ -1,6 +1,6 @@
 import { AxiosError } from 'axios';
 
-const API_BASE_URL = 'https://fsroas.com/api';
+const API_BASE_URL = 'https://fsroas.com';
 
 console.log('API_BASE_URL:', API_BASE_URL);
 
