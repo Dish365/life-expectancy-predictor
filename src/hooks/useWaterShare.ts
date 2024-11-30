@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { WaterSharePrediction, WaterShareSimulation } from '../types';
+import { API_BASE_URL } from '@/config/api';
 
 export const useWaterShare = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,9 +13,10 @@ export const useWaterShare = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.post<WaterSharePrediction>('/api/predict/water-share', {
-        features,
-      });
+      const response = await axios.post<WaterSharePrediction>(
+        `${API_BASE_URL}/api/predict/water-share/`,
+        { features }
+      );
       setPrediction(response.data);
 
       // Get existing prediction data if it exists
@@ -49,14 +51,17 @@ export const useWaterShare = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.post<WaterShareSimulation>('/api/simulate', {
-        initial_features: initialFeatures,
-        years,
-        simulation_type: simulationType,
-        change_rates: changeRates,
-        interval,
-        model_type: 'water_share'
-      });
+      const response = await axios.post<WaterShareSimulation>(
+        `${API_BASE_URL}/api/simulate/`,
+        {
+          initial_features: initialFeatures,
+          years,
+          simulation_type: simulationType,
+          change_rates: changeRates,
+          interval,
+          model_type: 'water_share'
+        }
+      );
 
       // Store the complete simulation data
       setSimulation(response.data);

@@ -4,7 +4,6 @@ import { API_BASE_URL } from '@/config/api'
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    console.log('Simulation request body:', body)
     
     const response = await fetch(`${API_BASE_URL}/api/simulate/`, {
       method: 'POST',
@@ -15,7 +14,6 @@ export async function POST(request: Request) {
     })
 
     const data = await response.json()
-    console.log('Simulation response:', data)
 
     if (!response.ok) {
       throw new Error(data.error || 'Failed to simulate')

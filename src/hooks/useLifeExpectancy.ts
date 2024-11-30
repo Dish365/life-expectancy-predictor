@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios, { AxiosError } from 'axios'
 import { PredictionResult, SimulationConfig, SimulationResult } from '@/types'
+import { API_BASE_URL } from '@/config/api'
 
 // Add request caching for similar predictions
 const cache = new Map();
@@ -22,9 +23,10 @@ export const useLifeExpectancy = () => {
     setIsLoading(true)
     setError(null)
     try {
-      const response = await axios.post<PredictionResult>('/api/predict/life-expectancy', {
-        features,
-      })
+      const response = await axios.post<PredictionResult>(
+        `${API_BASE_URL}/api/predict/life-expectancy/`, 
+        { features }
+      )
       setResult(response.data)
       
       // Get existing prediction data if it exists
@@ -69,10 +71,13 @@ export const useLifeExpectancy = () => {
     setIsLoading(true)
     setError(null)
     try {
-      const response = await axios.post<{ simulation_results: SimulationResult[] }>('/api/simulate', {
-        ...config,
-        model_type: 'life_expectancy'
-      })
+      const response = await axios.post<{ simulation_results: SimulationResult[] }>(
+        `${API_BASE_URL}/api/simulate/`,
+        {
+          ...config,
+          model_type: 'life_expectancy'
+        }
+      )
       // Extract simulation_results from the response
       const results = response.data.simulation_results
       cache.set(cacheKey, results);
