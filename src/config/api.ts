@@ -1,9 +1,11 @@
 import { AxiosError } from 'axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_BASE_URL = 'https://fsroas.com/api';
 
-if (!API_BASE_URL && process.env.NODE_ENV === 'production') {
-  console.error('NEXT_PUBLIC_API_BASE_URL is not defined in production environment');
+console.log('API_BASE_URL:', API_BASE_URL);
+
+if (!API_BASE_URL) {
+  console.error('API_BASE_URL is not configured');
 }
 
 export { API_BASE_URL };
