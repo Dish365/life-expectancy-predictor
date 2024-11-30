@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { WaterSharePrediction, WaterShareSimulation } from '../types';
-import { API_BASE_URL } from '@/config/api';
+import { API_BASE_URL, handleApiError } from '@/config/api';
 
 export const useWaterShare = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +34,10 @@ export const useWaterShare = () => {
 
       return response.data;
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to predict water share');
+      const errorMessage = axios.isAxiosError(err) 
+        ? handleApiError(err).message 
+        : 'Failed to predict water share';
+      setError(errorMessage);
       return null;
     } finally {
       setIsLoading(false);
@@ -63,13 +66,13 @@ export const useWaterShare = () => {
         }
       );
 
-      // Store the complete simulation data
       setSimulation(response.data);
-      
-      // Return just the simulation results for the component
       return response.data.simulation_results;
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to simulate water share');
+      const errorMessage = axios.isAxiosError(err)
+        ? handleApiError(err).message
+        : 'Failed to simulate water share';
+      setError(errorMessage);
       return null;
     } finally {
       setIsLoading(false);

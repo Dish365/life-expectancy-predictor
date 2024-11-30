@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 import { PredictionResult, SimulationConfig, SimulationResult } from '@/types'
-import { API_BASE_URL } from '@/config/api'
+import { API_BASE_URL, handleApiError } from '@/config/api'
 
 // Add request caching for similar predictions
 const cache = new Map();
@@ -13,10 +13,10 @@ export const useLifeExpectancy = () => {
 
   const handleError = (err: unknown) => {
     if (axios.isAxiosError(err)) {
-      const axiosError = err as AxiosError<{ message: string }>
-      return axiosError.response?.data?.message || axiosError.message
+      const { message } = handleApiError(err);
+      return message;
     }
-    return 'An unexpected error occurred'
+    return 'An unexpected error occurred';
   }
 
   const predict = async (features: number[]) => {
