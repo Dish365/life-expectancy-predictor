@@ -5,7 +5,10 @@ export async function POST(request: Request) {
   try {
     const body = await request.json()
     
-    const response = await fetch(`${API_BASE_URL}/predict/life-expectancy/`, {
+    const url = `${API_BASE_URL}/predict/life-expectancy/`;
+    console.log('Making request to:', url);
+    
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
