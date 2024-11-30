@@ -1,10 +1,12 @@
 import { AxiosError } from 'axios';
 
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-if (!API_BASE_URL) {
-  console.error('API_BASE_URL is not defined');
+if (!API_BASE_URL && process.env.NODE_ENV === 'production') {
+  console.error('NEXT_PUBLIC_API_BASE_URL is not defined in production environment');
 }
+
+export { API_BASE_URL };
 
 export const handleApiError = (error: AxiosError) => {
   if (error.response) {
