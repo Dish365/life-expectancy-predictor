@@ -16,10 +16,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Life Expectancy & Water Share Predictor',
-    default: 'Life Expectancy & Water Share Predictor'
+    template: '%s | Health & Environmental Indicators Predictor',
+    default: 'Health & Environmental Indicators Predictor'
   },
-  description: 'Predict and analyze life expectancy and agricultural water share using machine learning',
+  description: 'Predict and analyze health and environmental indicators using machine learning',
   icons: {
     icon: '/favicon.ico'
   }
