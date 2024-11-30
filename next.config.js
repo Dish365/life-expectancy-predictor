@@ -5,6 +5,9 @@ const nextConfig = {
   images: {
     domains: ['fsroas.com'],
   },
+  env: {
+    NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  }
 }
 
 module.exports = nextConfig 
