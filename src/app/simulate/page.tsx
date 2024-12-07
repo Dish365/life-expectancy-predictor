@@ -143,7 +143,7 @@ export default function SimulatePage() {
           className="space-y-8"
         >
           <div className="flex justify-between items-center">
-            <h1 className="text-4xl font-bold text-white">
+            <h1 className="text-4xl font-bold text-[#2B4C6F]">
               {predictionType === 'both' 
                 ? 'Life Expectancy & Water Share Simulator'
                 : predictionType === 'water-share'
@@ -154,7 +154,7 @@ export default function SimulatePage() {
               <Button 
                 onClick={handleReset}
                 variant="outline"
-                className="text-gray-400 border-gray-600 hover:bg-white/10 hover:text-white hover:border-gray-400"
+                className="text-[#4A7198] border-gray-200 hover:bg-[#EDF3F8] hover:text-[#2B4C6F] hover:border-[#2B4C6F]"
               >
                 Reset Simulation
               </Button>
@@ -170,21 +170,21 @@ export default function SimulatePage() {
           )}
 
           {!baseValues ? (
-            <Card className="p-6 text-center bg-black/50 backdrop-blur-xl border-gray-800">
-              <h2 className="text-2xl font-semibold mb-4 text-white">Set Base Values</h2>
-              <p className="mb-4 text-gray-200">To run a simulation, you need to set base values first.</p>
+            <Card className="p-6 text-center bg-white shadow-sm border border-gray-200">
+              <h2 className="text-2xl font-semibold mb-4 text-[#2B4C6F]">Set Base Values</h2>
+              <p className="mb-4 text-[#4A7198]">To run a simulation, you need to set base values first.</p>
               <div className="space-y-4">
                 <Button 
                   onClick={handleSetBaseValues}
-                  className="bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white font-medium"
+                  className="bg-[#2B4C6F] hover:bg-[#1D3557] text-white font-medium"
                 >
                   Use Last Prediction
                 </Button>
-                <div className="text-sm text-gray-300">or</div>
+                <div className="text-sm text-[#4A7198]">or</div>
                 <Link href="/?redirect=simulate">
                   <Button 
                     variant="outline" 
-                    className="text-gray-400 border-gray-600 hover:bg-white/10 hover:text-white hover:border-gray-400 transition-all"
+                    className="text-[#4A7198] border-gray-200 hover:bg-[#EDF3F8] hover:text-[#2B4C6F] hover:border-[#2B4C6F]"
                   >
                     Make New Prediction
                   </Button>

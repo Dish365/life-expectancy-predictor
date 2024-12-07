@@ -50,9 +50,9 @@ export function SimulationChart({ results, feature, type = 'life-expectancy' }: 
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Card className="bg-gray-900/90 backdrop-blur-sm border-gray-700">
+      <Card className="bg-white shadow-sm border border-gray-200">
         <CardHeader>
-          <CardTitle className="text-lg font-medium text-white">
+          <CardTitle className="text-lg font-medium text-[#2B4C6F]">
             {feature || (type === 'life-expectancy' ? 'Life Expectancy Projection' : 'Water Share Projection')}
           </CardTitle>
         </CardHeader>
@@ -60,12 +60,12 @@ export function SimulationChart({ results, feature, type = 'life-expectancy' }: 
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(43, 76, 111, 0.1)" />
                 <XAxis 
                   dataKey="year"
                   label={{ value: 'Year', position: 'bottom', offset: -10 }}
-                  tick={{ fill: '#ffffff' }}
-                  stroke="#ffffff"
+                  tick={{ fill: '#2B4C6F' }}
+                  stroke="#2B4C6F"
                   tickFormatter={(value) => value.toString()}
                   interval={Math.ceil(results.length / 5)}
                 />
@@ -76,17 +76,17 @@ export function SimulationChart({ results, feature, type = 'life-expectancy' }: 
                     angle: -90,
                     position: 'insideLeft',
                     offset: -10,
-                    style: { fill: '#ffffff' }
+                    style: { fill: '#2B4C6F' }
                   }}
-                  tick={{ fill: '#ffffff' }}
-                  stroke="#ffffff"
+                  tick={{ fill: '#2B4C6F' }}
+                  stroke="#2B4C6F"
                 />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'rgba(17, 17, 17, 0.95)',
-                    border: '1px solid rgba(255,255,255,0.2)',
+                    backgroundColor: 'white',
+                    border: '1px solid rgba(43, 76, 111, 0.2)',
                     borderRadius: '8px',
-                    color: 'white',
+                    color: '#2B4C6F',
                     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                   }}
                   labelFormatter={(value) => `Year: ${value}`}
@@ -96,16 +96,16 @@ export function SimulationChart({ results, feature, type = 'life-expectancy' }: 
                   ]}
                 />
                 <Legend 
-                  wrapperStyle={{ color: '#ffffff' }}
+                  wrapperStyle={{ color: '#2B4C6F' }}
                 />
                 <Line
                   type="monotone"
                   dataKey="value"
                   name={feature || (type === 'life-expectancy' ? 'Life Expectancy' : 'Water Share')}
-                  stroke={type === 'life-expectancy' ? '#60a5fa' : '#34d399'}
+                  stroke="#2B4C6F"
                   strokeWidth={2}
                   dot={false}
-                  activeDot={{ r: 8, fill: type === 'life-expectancy' ? '#60a5fa' : '#34d399' }}
+                  activeDot={{ r: 8, fill: '#2B4C6F' }}
                 />
               </LineChart>
             </ResponsiveContainer>

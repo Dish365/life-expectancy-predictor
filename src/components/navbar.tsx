@@ -18,12 +18,12 @@ export const Navbar = ({
   const pathname = usePathname()
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b border-gray-800 bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/80">
+    <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
       <nav className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-white">
+              <span className="text-xl font-bold text-[#2B4C6F]">
                 Life Expectancy & Water Share Predictor
               </span>
             </Link>
@@ -36,13 +36,13 @@ export const Navbar = ({
                   key={name}
                   href={href}
                   className={cn(
-                    'relative transition-colors hover:text-white',
-                    pathname === href ? 'text-white' : 'text-gray-400'
+                    'relative transition-colors hover:text-[#2B4C6F]',
+                    pathname === href ? 'text-[#2B4C6F]' : 'text-gray-600'
                   )}
                 >
                   {pathname === href && (
                     <motion.div
-                      className="absolute -bottom-[21px] left-0 right-0 h-[2px] bg-blue-500"
+                      className="absolute -bottom-[21px] left-0 right-0 h-[2px] bg-[#2B4C6F]"
                       layoutId="navbar-indicator"
                     />
                   )}
@@ -55,7 +55,7 @@ export const Navbar = ({
             aria-label="Prediction type selector"
             value={predictionType}
             onChange={(e) => onPredictionTypeChange(e.target.value as PredictionType)}
-            className="rounded-md border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-white focus:border-blue-500 focus:outline-none"
+            className="rounded-md border border-gray-200 bg-white px-3 py-1.5 text-sm text-[#2B4C6F] focus:border-[#2B4C6F] focus:outline-none"
           >
             <option value="life-expectancy">Life Expectancy</option>
             <option value="water-share">Agricultural Water Share</option>

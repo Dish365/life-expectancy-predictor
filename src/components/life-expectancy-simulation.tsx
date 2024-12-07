@@ -42,23 +42,23 @@ export function LifeExpectancySimulation({
 }: LifeExpectancySimulationProps) {
   return (
     <div className="space-y-6">
-      <Card className="bg-black/50 backdrop-blur-xl border-gray-800">
+      <Card className="bg-white shadow-sm border border-gray-200">
         <CardContent className="p-6">
           <div className="mb-6">
-            <h3 className="text-xl font-semibold mb-2 text-white">Life Expectancy Base Values</h3>
+            <h3 className="text-xl font-semibold mb-2 text-[#2B4C6F]">Life Expectancy Base Values</h3>
             {baseValues && (
-              <div className="text-gray-200">
+              <div className="text-[#4A7198]">
                 Initial Life Expectancy: {baseValues.lifeExpectancy?.toFixed(2)} years
               </div>
             )}
           </div>
           
           <Tabs defaultValue="basic">
-            <TabsList className="w-full bg-gray-800/50">
-              <TabsTrigger value="basic" className="flex-1 text-gray-200 data-[state=active]:text-white data-[state=active]:bg-gray-700">
+            <TabsList className="w-full bg-[#EDF3F8]">
+              <TabsTrigger value="basic" className="flex-1 text-[#4A7198] data-[state=active]:text-[#2B4C6F] data-[state=active]:bg-white">
                 Basic Settings
               </TabsTrigger>
-              <TabsTrigger value="advanced" className="flex-1 text-gray-200 data-[state=active]:text-white data-[state=active]:bg-gray-700">
+              <TabsTrigger value="advanced" className="flex-1 text-[#4A7198] data-[state=active]:text-[#2B4C6F] data-[state=active]:bg-white">
                 Change Rates
               </TabsTrigger>
             </TabsList>
@@ -66,7 +66,7 @@ export function LifeExpectancySimulation({
             <TabsContent value="basic" className="space-y-4">
               <div className="space-y-4">
                 <div>
-                  <Label className="text-gray-200 font-medium">Baseline Year</Label>
+                  <Label className="text-[#2B4C6F] font-medium">Baseline Year</Label>
                   <Input 
                     type="number" 
                     value={config.baselineYear}
@@ -74,12 +74,12 @@ export function LifeExpectancySimulation({
                       ...config,
                       baselineYear: parseInt(e.target.value)
                     })}
-                    className="bg-gray-900/80 border-gray-600 text-white placeholder-gray-400"
+                    className="bg-white border-gray-200 text-[#2B4C6F] focus:border-[#2B4C6F]"
                   />
                 </div>
 
                 <div>
-                  <Label className="text-gray-200 font-medium">Years to Simulate</Label>
+                  <Label className="text-[#2B4C6F] font-medium">Years to Simulate</Label>
                   <Input 
                     type="number" 
                     value={config.years}
@@ -87,12 +87,12 @@ export function LifeExpectancySimulation({
                       ...config,
                       years: parseInt(e.target.value)
                     })}
-                    className="bg-gray-900/80 border-gray-600 text-white placeholder-gray-400"
+                    className="bg-white border-gray-200 text-[#2B4C6F] focus:border-[#2B4C6F]"
                   />
                 </div>
 
                 <div>
-                  <Label className="text-gray-200 font-medium">Interval (years)</Label>
+                  <Label className="text-[#2B4C6F] font-medium">Interval (years)</Label>
                   <Input 
                     type="number"
                     value={config.interval}
@@ -100,12 +100,12 @@ export function LifeExpectancySimulation({
                       ...config,
                       interval: parseInt(e.target.value)
                     })}
-                    className="bg-gray-900/80 border-gray-600 text-white placeholder-gray-400"
+                    className="bg-white border-gray-200 text-[#2B4C6F] focus:border-[#2B4C6F]"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="simulation-type" className="text-gray-200 font-medium">
+                  <Label htmlFor="simulation-type" className="text-[#2B4C6F] font-medium">
                     Simulation Type
                   </Label>
                   <select 
@@ -117,7 +117,7 @@ export function LifeExpectancySimulation({
                       ...config,
                       simulation_type: e.target.value as 'linear' | 'exponential'
                     })}
-                    className="w-full p-2 bg-gray-900/80 border-gray-600 rounded-md text-white"
+                    className="w-full p-2 bg-white border-gray-200 rounded-md text-[#2B4C6F]"
                   >
                     <option value="linear">Linear</option>
                     <option value="exponential">Exponential</option>
@@ -129,7 +129,7 @@ export function LifeExpectancySimulation({
             <TabsContent value="advanced" className="space-y-4">
               {keyLifeFeatures.map((feature) => (
                 <div key={feature}>
-                  <Label className="text-gray-200 font-medium">
+                  <Label className="text-[#2B4C6F] font-medium">
                     {feature} (% change per year)
                   </Label>
                   <Input
@@ -142,7 +142,7 @@ export function LifeExpectancySimulation({
                         [feature]: parseFloat(e.target.value)
                       }
                     })}
-                    className="bg-gray-900/80 border-gray-600 text-white placeholder-gray-400"
+                    className="bg-white border-gray-200 text-[#2B4C6F] focus:border-[#2B4C6F]"
                   />
                 </div>
               ))}
@@ -150,7 +150,7 @@ export function LifeExpectancySimulation({
           </Tabs>
 
           <Button 
-            className="w-full mt-6 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white font-medium" 
+            className="w-full mt-6 bg-[#2B4C6F] hover:bg-[#1D3557] text-white" 
             onClick={onSimulate}
             disabled={loading}
           >

@@ -67,7 +67,7 @@ export function FeatureInput({ onPredict, isLoading, predictionType }: FeatureIn
       </div>
 
       {Object.entries(FEATURE_CATEGORIES as Record<string, FeatureCategory>).map(([key, category]) => (
-        <Card key={key} className="p-4 bg-gray-800/50 border-gray-700">
+        <Card key={key} className="p-4 bg-white shadow-sm border border-gray-200">
           <button
             type="button"
             className="flex items-center justify-between w-full text-left"
@@ -77,7 +77,7 @@ export function FeatureInput({ onPredict, isLoading, predictionType }: FeatureIn
           >
             <div className="flex items-center space-x-3">
               {renderIcon(category.icon)}
-              <span className="font-medium text-white">{category.name}</span>
+              <span className="font-medium text-[#2B4C6F]">{category.name}</span>
             </div>
             <Icons.ChevronDown className={cn(
               "h-5 w-5 transition-transform text-gray-400",

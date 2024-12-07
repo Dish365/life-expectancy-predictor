@@ -42,23 +42,23 @@ export function WaterShareSimulation({
 }: WaterShareSimulationProps) {
   return (
     <div className="space-y-6">
-      <Card className="bg-black/50 backdrop-blur-xl border-gray-800">
+      <Card className="bg-white shadow-sm border border-gray-200">
         <CardContent className="p-6">
           <div className="mb-6">
-            <h3 className="text-xl font-semibold mb-2 text-white">Water Share Base Values</h3>
+            <h3 className="text-xl font-semibold mb-2 text-[#2B4C6F]">Water Share Base Values</h3>
             {baseValues && (
-              <div className="text-gray-200">
+              <div className="text-[#4A7198]">
                 Initial Water Share: {baseValues.waterShare?.toFixed(2)}%
               </div>
             )}
           </div>
           
           <Tabs defaultValue="basic">
-            <TabsList className="w-full bg-gray-800/50">
-              <TabsTrigger value="basic" className="flex-1 text-gray-200 data-[state=active]:text-white data-[state=active]:bg-gray-700">
+            <TabsList className="w-full bg-[#EDF3F8]">
+              <TabsTrigger value="basic" className="flex-1 text-[#4A7198] data-[state=active]:text-[#2B4C6F] data-[state=active]:bg-white">
                 Basic Settings
               </TabsTrigger>
-              <TabsTrigger value="advanced" className="flex-1 text-gray-200 data-[state=active]:text-white data-[state=active]:bg-gray-700">
+              <TabsTrigger value="advanced" className="flex-1 text-[#4A7198] data-[state=active]:text-[#2B4C6F] data-[state=active]:bg-white">
                 Change Rates
               </TabsTrigger>
             </TabsList>
@@ -66,7 +66,7 @@ export function WaterShareSimulation({
             <TabsContent value="basic" className="space-y-4">
               <div className="space-y-4">
                 <div>
-                  <Label className="text-gray-200 font-medium">Baseline Year</Label>
+                  <Label className="text-[#2B4C6F] font-medium">Baseline Year</Label>
                   <Input 
                     type="number" 
                     value={config.baselineYear}
@@ -74,12 +74,12 @@ export function WaterShareSimulation({
                       ...config,
                       baselineYear: parseInt(e.target.value)
                     })}
-                    className="bg-gray-900/80 border-gray-600 text-white placeholder-gray-400"
+                    className="bg-white border-gray-200 text-[#2B4C6F] focus:border-[#2B4C6F]"
                   />
                 </div>
 
                 <div>
-                  <Label className="text-gray-200 font-medium">Years to Simulate</Label>
+                  <Label className="text-[#2B4C6F] font-medium">Years to Simulate</Label>
                   <Input 
                     type="number" 
                     value={config.years}
@@ -87,12 +87,12 @@ export function WaterShareSimulation({
                       ...config,
                       years: parseInt(e.target.value)
                     })}
-                    className="bg-gray-900/80 border-gray-600 text-white placeholder-gray-400"
+                    className="bg-white border-gray-200 text-[#2B4C6F] focus:border-[#2B4C6F]"
                   />
                 </div>
 
                 <div>
-                  <Label className="text-gray-200 font-medium">Interval (years)</Label>
+                  <Label className="text-[#2B4C6F] font-medium">Interval (years)</Label>
                   <Input 
                     type="number"
                     value={config.interval}
@@ -100,12 +100,12 @@ export function WaterShareSimulation({
                       ...config,
                       interval: parseInt(e.target.value)
                     })}
-                    className="bg-gray-900/80 border-gray-600 text-white placeholder-gray-400"
+                    className="bg-white border-gray-200 text-[#2B4C6F] focus:border-[#2B4C6F]"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="simulation-type" className="text-gray-200 font-medium">
+                  <Label htmlFor="simulation-type" className="text-[#2B4C6F] font-medium">
                     Simulation Type
                   </Label>
                   <select 
@@ -116,7 +116,7 @@ export function WaterShareSimulation({
                       ...config,
                       simulation_type: e.target.value as 'linear' | 'exponential'
                     })}
-                    className="w-full p-2 bg-gray-900/80 border-gray-600 rounded-md text-white"
+                    className="w-full p-2 bg-white border-gray-200 rounded-md text-[#2B4C6F]"
                   >
                     <option value="linear">Linear</option>
                     <option value="exponential">Exponential</option>
@@ -128,7 +128,7 @@ export function WaterShareSimulation({
             <TabsContent value="advanced" className="space-y-4">
               {keyWaterFeatures.map((feature) => (
                 <div key={feature}>
-                  <Label className="text-gray-200 font-medium">
+                  <Label className="text-[#2B4C6F] font-medium">
                     {feature} (% change per year)
                   </Label>
                   <Input
@@ -141,7 +141,7 @@ export function WaterShareSimulation({
                         [feature]: parseFloat(e.target.value)
                       }
                     })}
-                    className="bg-gray-900/80 border-gray-600 text-white placeholder-gray-400"
+                    className="bg-white border-gray-200 text-[#2B4C6F] focus:border-[#2B4C6F]"
                   />
                 </div>
               ))}
@@ -149,7 +149,7 @@ export function WaterShareSimulation({
           </Tabs>
 
           <Button 
-            className="w-full mt-6 bg-gradient-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white font-medium" 
+            className="w-full mt-6 bg-[#2B4C6F] hover:bg-[#1D3557] text-white" 
             onClick={onSimulate}
             disabled={loading}
           >
@@ -167,13 +167,13 @@ export function WaterShareSimulation({
           <div className="grid grid-cols-2 gap-4">
             {keyWaterFeatures.map((feature) => (
               <div key={feature} className="space-y-4">
-                <Card className="bg-black/50 backdrop-blur-xl border-gray-800">
+                <Card className="bg-white shadow-sm border border-gray-200">
                   <CardContent className="p-4">
-                    <div className="text-sm font-medium mb-2 text-gray-200">{feature}</div>
-                    <div className="text-2xl font-bold text-white">
+                    <div className="text-sm font-medium mb-2 text-[#4A7198]">{feature}</div>
+                    <div className="text-2xl font-bold text-[#2B4C6F]">
                       {(results[results.length - 1]?.features[feature] ?? 0).toFixed(2)}
                     </div>
-                    <div className="text-xs text-gray-300">
+                    <div className="text-xs text-[#4A7198]">
                       Change: {(((results[results.length - 1]?.features[feature] ?? 0) - 
                                 (results[0]?.features[feature] ?? 0)) / 
                                 (results[0]?.features[feature] ?? 1) * 100).toFixed(1)}%
