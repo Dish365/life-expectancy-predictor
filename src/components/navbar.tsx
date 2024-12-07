@@ -24,7 +24,7 @@ export const Navbar = ({
           <div className="flex items-center gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
               <span className="text-xl font-bold text-[#2B4C6F]">
-                Life Expectancy & Water Share Predictor
+                Health & Environmental Indicators Predictor
               </span>
             </Link>
             <nav className="flex gap-6">
