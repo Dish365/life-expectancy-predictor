@@ -13,8 +13,8 @@ export default function LandingPage() {
   const router = useRouter()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <header className="sticky top-0 z-50 border-b bg-white/95 backdrop-blur-sm">
+    <div className="min-h-screen bg-[#EDF3F8]">
+      <header className="sticky top-0 z-50 border-b bg-white shadow-sm">
         <nav className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-2">
@@ -60,27 +60,27 @@ export default function LandingPage() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <h1 className="text-6xl font-serif italic text-white">
+            <h1 className="text-6xl font-serif italic text-[#2B4C6F]">
               Welcome
               <span className="block mt-2 text-4xl font-sans font-bold not-italic">
                 to Food System Rapid Overview Assessment through Scenarios
               </span>
             </h1>
-            <p className="text-xl text-blue-300 italic">
+            <p className="text-xl text-[#4A7198] italic">
               A toolbox for exploring the ramifications of meeting environmental and health targets through 
               scenario construction using selected food system indicators
             </p>
             <div className="grid grid-cols-2 gap-4">
               <Button 
                 size="lg"
-                className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm"
+                className="w-full bg-[#2B4C6F] hover:bg-[#1D3557] text-white"
                 onClick={() => router.push('/predict')}
               >
                 Predictor
               </Button>
               <Button 
                 size="lg"
-                className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm"
+                className="w-full border-2 border-[#2B4C6F] bg-white text-[#2B4C6F] hover:bg-[#EDF3F8]"
                 onClick={() => router.push('/simulate')}
               >
                 Simulator
@@ -105,7 +105,7 @@ export default function LandingPage() {
 
         {/* How It Works Section */}
         <section className="space-y-12">
-          <h2 className="text-4xl font-bold text-center text-white">How FS-ROAS Works</h2>
+          <h2 className="text-4xl font-bold text-center text-[#2B4C6F]">How FS-ROAS Works</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="flex flex-col gap-8">
@@ -117,14 +117,14 @@ export default function LandingPage() {
                 ].map((item, index) => (
                   <div key={item.step} className="flex items-center gap-4">
                     <div className="relative">
-                      <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-medium">
+                      <div className="w-12 h-12 rounded-full bg-[#2B4C6F] flex items-center justify-center text-white font-medium">
                         {item.step}
                       </div>
                       {index < 3 && (
-                        <div className="absolute top-12 left-1/2 h-8 w-0.5 bg-blue-600 -translate-x-1/2" />
+                        <div className="absolute top-12 left-1/2 h-8 w-0.5 bg-[#2B4C6F] -translate-x-1/2" />
                       )}
                     </div>
-                    <div className="flex-1 p-4 rounded-lg border border-blue-200 bg-white">
+                    <div className="flex-1 p-4 rounded-lg border border-[#2B4C6F]/20 bg-white">
                       {item.title}
                     </div>
                   </div>
@@ -151,8 +151,8 @@ export default function LandingPage() {
         </section>
 
         {/* Benefits Section */}
-        <section className="space-y-12">
-          <h2 className="text-4xl font-bold text-center text-white">Benefits of FS-ROAS</h2>
+        <section className="space-y-12 bg-white py-12 rounded-lg">
+          <h2 className="text-4xl font-bold text-center text-[#2B4C6F]">Benefits of FS-ROAS</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -168,12 +168,12 @@ export default function LandingPage() {
                 title: "Initiate discourse with policymakers and key stakeholders"
               }
             ].map((benefit) => (
-              <Card key={benefit.title} className="p-6 bg-white shadow-md">
+              <Card key={benefit.title} className="p-6 bg-[#EDF3F8] shadow-sm border-[#2B4C6F]/10">
                 <div className="flex flex-col items-center text-center gap-4">
                   {React.createElement(benefit.icon, {
-                    className: "w-8 h-8 text-blue-600"
+                    className: "w-8 h-8 text-[#2B4C6F]"
                   })}
-                  <p className="font-medium">{benefit.title}</p>
+                  <p className="font-medium text-[#2B4C6F]">{benefit.title}</p>
                 </div>
               </Card>
             ))}
@@ -182,7 +182,7 @@ export default function LandingPage() {
 
         {/* Useful Links Section */}
         <section className="space-y-12">
-          <h2 className="text-4xl font-bold text-center text-white">Useful links for Food System Evaluations</h2>
+          <h2 className="text-4xl font-bold text-center text-[#2B4C6F]">Useful links for Food System Evaluations</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -198,13 +198,13 @@ export default function LandingPage() {
                 description: "It provides commodity specific technology with associated economic and environmental..."
               }
             ].map((link) => (
-              <Card key={link.title} className="bg-white/5 backdrop-blur-sm border-gray-800 p-6">
+              <Card key={link.title} className="bg-white shadow-sm border-[#2B4C6F]/10 p-6">
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-white">{link.title}</h3>
-                  <p className="text-gray-300">{link.description}</p>
+                  <h3 className="text-xl font-bold text-[#2B4C6F]">{link.title}</h3>
+                  <p className="text-[#4A7198]">{link.description}</p>
                   <Button 
                     variant="outline" 
-                    className="w-full bg-white/10 text-white border-white hover:bg-white hover:text-purple-900 transition-colors"
+                    className="w-full border-[#2B4C6F] text-[#2B4C6F] hover:bg-[#2B4C6F] hover:text-white transition-colors"
                   >
                     Learn more
                   </Button>
@@ -216,7 +216,7 @@ export default function LandingPage() {
       </main>
 
       <footer className="border-t bg-white py-6">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
+        <div className="container mx-auto px-4 text-center text-sm text-[#4A7198]">
           All copyright reserved at Sustainable Food System Engineering (SFSE) Lab ©2024
         </div>
       </footer>
